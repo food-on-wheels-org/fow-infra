@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: menudirectoryapp
+  labels:
+    app: menudirectoryapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: menudirectoryapp
+  template:
+    metadata:
+      labels:
+        app: menudirectoryapp
+    spec:
+      containers:
+        - name: menudirectoryapp
+          image: tejassrivathsa/menu-directory-service:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 9092
+          env:
+            - name: SPRING_DATASOURCE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: secret
+                  key: mysql-username
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: secret
+                  key: mysql-password
+            - name: SPRING_DATASOURCE_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap
+                  key: menudirectorydb_url
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: menu-directory-service
+spec:
+  ports:
+    - protocol: TCP
+      port: 9092
+      targetPort: 9092
+  selector:
+    app: menudirectoryapp

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: configmap
+data:
+  restaurantdb_url: jdbc:mysql://mysql-db-instance.c5yseiq8qe2t.eu-west-2.rds.amazonaws.com:3306/restaurantdb
+  menudirectorydb_url: jdbc:mysql://mysql-db-instance.c5yseiq8qe2t.eu-west-2.rds.amazonaws.com:3306/menudirectorydb
+  userdetailsdb_url: jdbc:mysql://mysql-db-instance.c5yseiq8qe2t.eu-west-2.rds.amazonaws.com:3306/userdetailsdb
+  orderservice_url: mongodb+srv://admin:22JumpStreet!@atlas-cluster.yuavamy.mongodb.net//
+  eureka_service_address: http://eureka-0.eureka-service:8761/eureka
+  
