@@ -23,9 +23,9 @@ spec:
               value: "-Djdk.tls.client.protocols=TLSv1.2"
             - name: SPRING_DATA_MONGODB_URI
               valueFrom:
-                configMapKeyRef:
-                  name: configmap
-                  key: orderservice_url
+                secretKeyRef:
+                  name: secret
+                  key: mongo-uri
             - name: SPRING_DATA_MONGODB_DATABASE
               value: "orderservice"
 
