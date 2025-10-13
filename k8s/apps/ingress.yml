@@ -11,6 +11,14 @@ spec:
   rules:
     - http:
         paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: angular-service
+                port:
+                  number: 80
+
           - path: /restaurant
             pathType: Prefix
             backend:
