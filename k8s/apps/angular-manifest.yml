@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: angular-app-container
-          image: tejassrivathsa/fow-app-ui:latest
+          image: tejassrivathsa/fow-app-ui:14
           imagePullPolicy: Always
           ports:
             - containerPort: 80
