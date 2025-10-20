@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: menudirectoryapp
-          image: tejassrivathsa/menu-directory-service:latest
+          image: tejassrivathsa/menu-directory-service:3
           imagePullPolicy: Always
           ports:
             - containerPort: 9092
