@@ -14,7 +14,7 @@ spec:
     namespace: default
   source:
     repoURL: 'git@github.com:food-on-wheels-org/fow-infra.git'
-    path: ./k8s/argocd-apps
+    path: ./k8s/apps
     targetRevision: HEAD
     directory:
       recurse: true
